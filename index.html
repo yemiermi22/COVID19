@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js" integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+
+
+    <title>Document</title>
+</head>
+<body>
+
+    <img class="d-block img-fluid cimage" src="https://source.unsplash.com/rnr8D3FNUNY/1200x192">
+    </div>
+  </div>
+  <div class="d-flex align-items-center pt-0  w-100">
+  </div>
+  <div id="myform">
+     <center> <h1 >COVID19 DASHBOARED</h1><br></center>
+      <input type="text" id="country" placeholder=" Country Name" required>
+     <button type="button" class="btn btn-primary" onclick="searchCountries()"> Search </button>
+    </div>
+    <div class="container"></div>
+    <div id="charts"></div>
+         <div id="table">
+    <div class="container">
+        <div class="row">
+        </div>
+      </div>
+  </div>
+  <div class="col-sm-8">
+      <div class="table-responsive">
+        <table class="table table-hover table-striped ">
+          <thead class="table-dark">
+              <tr>
+                  <th>Country</th>
+                  <th>Confirmed</th>
+              <th>Death</th>
+              <th>Recovered</th>
+              <th>Today Confirmed</th>
+          </tr>
+      </thead>
+      <tbody id='tableBody'>
+         
+      </tbody>
+   </table>
+  </div>
+  <div class="buttons d-flex justify-content-around">
+      <div ><button class="btn btn-danger" id="prev" onclick="prev()">PREV</button></div>
+      <div ><button class="btn btn-danger" id="next" onclick="next()">NEXT</button></div>
+  </div>
+      </div>
+  </div>
+  </div>
+    </div>
+</div>
+<div class="card" style="width:500px;">
+<div id="container"></div>
+</div>
+<div class="card" style="width:500px;"> 
+<div id="charts"></div>
+</div>
+<div class="card" style="width:500px;"> 
+  <div id="piechart"></div>
+  </div>
+  <!-- <div class="card" style="width:500px;">  -->
+    <div id="new"></div>
+    </div>
+</div>
+<div id="table"  style="width: 100px;"></div>
+<div id="tab" style="width: 400px;"></div>
+<div class="piechart" style="width: 500px;"></div>
+<div class="new"style="width:300px;"></div>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/series-label.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+<script src="script.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+crossorigin="anonymous"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/series-label.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<script>
+  let tBody=document.querySelector('#tableBody')
+ let cnum=0;
+ function initailData()
+ {
+ fetch("https://api.covid19api.com/summary")
+ .then(data=>data.json())
+ .then(data=>dashboard(data.Countries))
+ }
+ initailData();
+ 
+ function dashboard(country)
+ {
+ 
+ country.forEach(element => {
+     tBody.innerHTML +=
+         ` <tr class="table-" id="row">
+                         <th id='countryName'>${element.Country}</th>
+                         <td id="confirmed">${element.TotalConfirmed}</td>
+                         <td id="death">${element.TotalDeaths}</td>
+                         <td id="recovered">${element.TotalRecovered}</td>
+                         <td id="newConfirmed">${element.NewConfirmed}</td>
+                     </tr>`
+ });
+ tBody.innerHTML =" ";
+ console.log("in",cnum,country)
+ for(i=cnum;i<=(cnum+10);i++)
+ { 
+ 
+     if(i < 192)
+     {
+     tBody.innerHTML +=
+         ` <tr class="table-" id="row">
+                         <th id='countryName'>${country[i].Country}</th>
+                         <td id="confirmed">${country[i].TotalConfirmed}</td>
+                         <td id="death">${country[i].TotalDeaths}</td>
+                         <td id="recovered">${country[i].TotalRecovered}</td>
+                         <td id="newConfirmed">${country[i].NewConfirmed}</td>
+                     </tr>`
+                 }
+ }
+ }
+ </script>
+ 
+ 
+<script>
+ 
+           var chartss = `<"div class="card bg-warning">
+       <div class="card bg-warning">
+           <div class=charts></div>
+   <h1></h1>
+       
+   </div>`
+ document.getElementById('charts').innerHTML = charts;
+Highcharts.chart('charts', {
+  chart: {
+    type: 'area'
+  },
+  
+  title: {
+    text: 'TOTAL RECOVERY'
+  },
+ 
+  xAxis: {
+    allowDecimals: false,
+    labels: {
+      formatter: function () {
+        return this.value; // clean, unformatted number for year
+      }
+    },
+    accessibility: {
+      rangeDescription: 'Range: 2019 to 2023.'
+    }
+  },
+  yAxis: {
+    title: {
+      text: 'covid19'
+    },
+    labels: {
+      formatter: function () {
+        return this.value / 10 + 'k';
+      }
+    }
+  },
+  tooltip: {
+    pointFormat: 'Recovered  2258603'
+  },
+  plotOptions: {
+    area: {
+      pointStart: 2019,
+      marker: {
+        enabled: false,
+        symbol: 'circle',
+        radius: 1,
+        states: {
+          hover: {
+            enabled: true
+          }
+        }
+      }
+    }
+  },
+  series: [{
+    name: 'recovery',
+  }, {
+    name: 'Recovery',
+    data: [1675827, 1702070, 1754793, 1808082, 1862900, 1922601, 1970516, 2133196, 2207960,0
+    ]
+  }]
+});
+</script>
+
+    <script>
+
+      var url = `https://api.covid19api.com/live/country/south-africa/status/deaths`
+     fetch(url)
+       .then(response => response.json())
+       .then(data => {
+       
+           var datas = data.Deaths;
+      console.log(data);
+      draw(data);
+   
+           var card2 = `<"div class="card bg-warning">
+           <div class="card bg-warning">
+               <div class=table></div>
+       <h1></h1>
+           
+       </div>`
+       })
+       document.getElementById('charts').innerHTML = card2;
+       function draw(info){
+    Highcharts.chart('table', {
+  chart: {
+    type: 'column'
+ },
+  title: {
+    text: 'deaths'
+ },
+  xAxis: {
+    categories: [
+      'total',
+      'death',
+      'recovered'
+    ]
+  },
+  yAxis: [{
+    min: 0,
+    title: {
+      text: 'Employees'
+    }
+  }, {
+    title: {
+      text: 'Profit (millions)'
+    },
+    opposite: true
+  }],
+  legend: {
+    shadow: false
+  },
+  tooltip: {
+    shared: true
+  },
+  plotOptions: {
+    column: {
+      grouping: false,
+      shadow: false,
+      borderWidth: 0
+    }
+ },
+  series: [{
+    name: 'people',
+    color: 'rgba(165,170,217,1)',
+    data: [info[0].Deaths,info[0].Confirmed,info[0].Active],
+    pointPadding: 0.3,
+    pointPlacement: -0.2
+  }, {
+    name: 'deaths',
+    color: 'rgba(126,86,134,.9)',
+    data: [info[1].Deaths,info[1].Confirmed,info[1].Active],
+    pointPadding: 0.4,
+    pointPlacement: -0.2
+  }, {
+    name: 'People',
+    color: 'rgba(248,161,63,1)',
+    data:[info[2].Deaths,info[2].Confirmed,info[2].Active],
+    tooltip: {
+      valuePrefix: '$',
+      valueSuffix: ' M'
+    },
+    pointPadding: 0.3,
+    pointPlacement: 0.2,
+    yAxis: 1
+  }, {
+    name: 'deaths',
+    color: 'rgba(186,60,61,.9)',
+    data: [info[3].Deaths,info[3].Confirmed,info[3].Active],
+    tooltip: {
+      valuePrefix: '$',
+      valueSuffix: ' M'
+    },
+    pointPadding: 0.4,
+    pointPlacement: 0.2,
+    yAxis: 1
+  }]
+});
+       }
+</script>
+
+<script>
+      var pieColors = (function () {
+  var colors = [],
+    base = Highcharts.getOptions().colors[0],
+    i;
+
+  for (i = 0; i < 10; i += 1) {
+    colors.push(Highcharts.color(base).brighten((i - 3) / 7).get());
+  }
+  return colors;
+}());
+
+var url = `https://api.covid19api.com/live/country/south-africa/status/confirmd`
+ fetch(url)
+   .then(response => response.json())
+   .then(data => {
+   
+       var datas = data.Deaths;
+  console.log(data);
+  draw(data);
+       var card = `<"div class="card bg-warning">
+       <div class="card bg-warning">
+           <div class=table></div>
+   <h1></h1>
+       
+   </div>`
+   })
+   document.getElementById('piechart').innerHTML = piechart;
+Highcharts.chart('piechart', {
+  chart: {
+    plotBackgroundColor: null,
+    plotBorderWidth: null,
+    plotShadow: false,
+    type: 'pie'
+  },
+  title: {
+    text: 'TOTAL CONFIRMED',
+    align: 'left'
+  },
+  tooltip: {
+    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+  },
+  accessibility: {
+    point: {
+      valueSuffix: '%'
+    }
+  },
+  plotOptions: {
+    pie: {
+      allowPointSelect: true,
+      cursor: 'pointer',
+      colors: pieColors,
+      dataLabels: {
+        enabled: true,
+        format: '<b>{point.name}</b><br>{point.percentage:.1f} %',
+        distance: -50,
+        filter: {
+          property: 'percentage',
+          operator: '>',
+          value: 4
+        }
+      }
+    }
+  },
+  series: [{
+    name: 'Share',
+    data: [
+      { name: 'total confirmed', y: 74.03 },
+      { name: 'total deaths', y: 12.66 },
+      { name: 'total recovery', y: 4.96 },
+    ]
+  }]
+});
+</script>
+<script>
+
+var url = `https://api.covid19api.com/live/country/south-africa/status/deaths`
+ fetch(url)
+   .then(response => response.json())
+   .then(data => {
+   
+       var datas = data.Deaths;
+  console.log(data);
+  draw(data);
+       var card = `<"div class="card bg-warning">
+       <div class="card bg-warning">
+           <div class=table></div>
+   <h1></h1>
+       
+   </div>`
+   })
+   document.getElementById('new').innerHTML = 'new';
+
+Highcharts.chart('new', {
+  chart: {
+    plotBackgroundColor: null,
+    plotBorderWidth: 0,
+    plotShadow: false
+  },
+  title: {
+    text: 'total results',
+    align: 'center',
+    verticalAlign: 'middle',
+    y: 60
+  },
+  tooltip: {
+    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+  },
+  accessibility: {
+    point: {
+      valueSuffix: '%'
+    }
+  },
+  plotOptions: {
+    pie: {
+      dataLabels: {
+        enabled: true,
+        distance: -50,
+        style: {
+          fontWeight: 'bold',
+          color: 'white'
+        }
+      },
+      startAngle: -90,
+      endAngle: 90,
+      center: ['50%', '75%'],
+      size: '110%'
+    }
+  },
+  series: [{
+    type: 'pie',
+    name: 'New deaths',
+    innerSize: '50%',
+    data: [
+      ['new confirmed', 50.86],
+      ['new deaths', 20.97],
+      ['new recovery', 15.97],
+      {
+        dataLabels: {
+          enabled: false
+        }
+      }
+    ]
+  }]
+});
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
