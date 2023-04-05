@@ -28,6 +28,34 @@ for confirmed
 for recovery
 for deaths
 for for total 
+         country.forEach(element => {
+//     tBody.innerHTML +=
+//         ` <tr class="table-" id="row">
+//                         <th id='countryName'>${element.Country}</th>
+//                         <td id="confirmed">${element.TotalConfirmed}</td>
+//                         <td id="death">${element.TotalDeaths}</td>
+//                         <td id="recovered">${element.TotalRecovered}</td>
+//                         <td id="newConfirmed">${element.NewConfirmed}</td>
+//                     </tr>`
+         var url = `https://api.covid19api.com/world/total`
+
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        
+      
+        var card = `<div class="card bg-warning">
+         <h1>Total Confirmed</h1>
+         <h2>${data.TotalConfirmed} </h2>
+         </div>
+         <div class="card bg-warning">
+         <h1>Total Death</h1>
+         <h2>${data.TotalDeaths} </h2>
+         </div>
+         <div class="card bg-warning">
+         <h1>Total Recovery</h1>
+         <h2>${data.TotalRecovered} </h2>
+         </div>`
 
 
 
